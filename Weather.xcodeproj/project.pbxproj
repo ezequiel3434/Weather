@@ -22,6 +22,8 @@
 		37199C39253BD28D00517775 /* GlobaleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C38253BD28D00517775 /* GlobaleHelpers.swift */; };
 		37199C3B253C9FC500517775 /* HourlyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C3A253C9FC500517775 /* HourlyForecast.swift */; };
 		37199C3D253CD91C00517775 /* WeeklyWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C3C253CD91C00517775 /* WeeklyWeatherForecast.swift */; };
+		37199C3F253CF89F00517775 /* ChooseCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C3E253CF89F00517775 /* ChooseCityViewController.swift */; };
+		37199C41253CFD3600517775 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C40253CFD3600517775 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		37199C38253BD28D00517775 /* GlobaleHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobaleHelpers.swift; sourceTree = "<group>"; };
 		37199C3A253C9FC500517775 /* HourlyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecast.swift; sourceTree = "<group>"; };
 		37199C3C253CD91C00517775 /* WeeklyWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherForecast.swift; sourceTree = "<group>"; };
+		37199C3E253CF89F00517775 /* ChooseCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityViewController.swift; sourceTree = "<group>"; };
+		37199C40253CFD3600517775 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7625E106BEBD84512B98F0DE /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		D7D1E48F2E4E941BF47C4672 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,12 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				37199C13253A14D000517775 /* Weather */,
-				37199C2C253A17B200517775 /* Extensions */,
-				37199C2B253A17AB00517775 /* Helpers */,
 				37199C12253A14D000517775 /* Products */,
 				AF073A01284F7E30142D3A53 /* Pods */,
 				F9038131349E5327A353D1F8 /* Frameworks */,
-				37199C22253A14D300517775 /* Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,9 @@
 				37199C28253A177B00517775 /* Models */,
 				37199C2D253A6B5700517775 /* ModelHelpers */,
 				37199C29253A178E00517775 /* View */,
+				37199C2C253A17B200517775 /* Extensions */,
+				37199C2B253A17AB00517775 /* Helpers */,
+				37199C22253A14D300517775 /* Info.plist */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				37199C18253A14D000517775 /* WeatherViewController.swift */,
+				37199C3E253CF89F00517775 /* ChooseCityViewController.swift */,
+				37199C40253CFD3600517775 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -278,12 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37199C41253CFD3600517775 /* DetailViewController.swift in Sources */,
 				37199C3D253CD91C00517775 /* WeeklyWeatherForecast.swift in Sources */,
 				37199C19253A14D000517775 /* WeatherViewController.swift in Sources */,
 				37199C31253A6C5600517775 /* CurrentWeather.swift in Sources */,
 				37199C37253BAC3700517775 /* LocationService.swift in Sources */,
 				37199C2F253A6BB400517775 /* WeatherLocation.swift in Sources */,
 				37199C15253A14D000517775 /* AppDelegate.swift in Sources */,
+				37199C3F253CF89F00517775 /* ChooseCityViewController.swift in Sources */,
 				37199C33253A83DD00517775 /* APIURLS.swift in Sources */,
 				37199C17253A14D000517775 /* SceneDelegate.swift in Sources */,
 				37199C3B253C9FC500517775 /* HourlyForecast.swift in Sources */,
