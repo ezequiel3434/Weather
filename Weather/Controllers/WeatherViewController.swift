@@ -13,6 +13,13 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let location = WeatherLocation(city: "Mendoza", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
+        let currentWeather = CurrentWeather()
+        
+        currentWeather.getCurrentWeather(location: location) { (success) in
+            
+        }
+        
     }
 
 
