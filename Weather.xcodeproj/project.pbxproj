@@ -19,6 +19,7 @@
 		37199C33253A83DD00517775 /* APIURLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C32253A83DD00517775 /* APIURLS.swift */; };
 		37199C35253BAA7A00517775 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C34253BAA7A00517775 /* Extensions.swift */; };
 		37199C37253BAC3700517775 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C36253BAC3700517775 /* LocationService.swift */; };
+		37199C39253BD28D00517775 /* GlobaleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37199C38253BD28D00517775 /* GlobaleHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		37199C32253A83DD00517775 /* APIURLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURLS.swift; sourceTree = "<group>"; };
 		37199C34253BAA7A00517775 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		37199C36253BAC3700517775 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		37199C38253BD28D00517775 /* GlobaleHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobaleHelpers.swift; sourceTree = "<group>"; };
 		7625E106BEBD84512B98F0DE /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		D7D1E48F2E4E941BF47C4672 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				37199C32253A83DD00517775 /* APIURLS.swift */,
+				37199C38253BD28D00517775 /* GlobaleHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				37199C15253A14D000517775 /* AppDelegate.swift in Sources */,
 				37199C33253A83DD00517775 /* APIURLS.swift in Sources */,
 				37199C17253A14D000517775 /* SceneDelegate.swift in Sources */,
+				37199C39253BD28D00517775 /* GlobaleHelpers.swift in Sources */,
 				37199C35253BAA7A00517775 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
