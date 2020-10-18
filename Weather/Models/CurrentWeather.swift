@@ -154,7 +154,7 @@ class CurrentWeather {
                 completion(true)
                 break
             case .failure(let error):
-                print("No reslust for current location with error: \(error)")
+                print("No result for current location with error: \(error)")
                 completion(false)
                 break
             }
