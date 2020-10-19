@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="height" constant="360" id="72c-yb-f0R"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="WGz-mk-zkS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="WGz-mk-zkS" customClass="MainWeatherTableViewCell" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WGz-mk-zkS" id="Rmb-YE-V5p">
@@ -73,6 +73,11 @@
                                                 <constraint firstItem="QaY-HZ-cnb" firstAttribute="top" secondItem="Rmb-YE-V5p" secondAttribute="top" constant="5" id="qbH-Ca-LGL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="z0V-m9-jkb" id="ms6-qe-yom"/>
+                                            <outlet property="tempLabel" destination="wfD-p9-j83" id="fTy-6k-pFv"/>
+                                            <outlet property="weatherIconImage" destination="tvR-OD-Pj7" id="fgT-ip-XR8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
