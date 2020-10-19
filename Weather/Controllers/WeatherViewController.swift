@@ -10,6 +10,10 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var weatherInfoLabel: UILabel!
     
     
 

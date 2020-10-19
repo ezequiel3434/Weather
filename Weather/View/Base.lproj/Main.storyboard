@@ -144,6 +144,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="o6k-Rh-82r"/>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="kRE-rh-9rm" id="r1Z-e0-3VR"/>
+                        <outlet property="dateLabel" destination="B6u-lG-GAU" id="gIW-2K-PCS"/>
+                        <outlet property="tempLabel" destination="PBo-Zb-hh2" id="TNw-g8-7c1"/>
+                        <outlet property="weatherInfoLabel" destination="EJP-rI-KWj" id="fSX-M3-FoY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
