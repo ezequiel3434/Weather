@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherView" customModule="Weather" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="974"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_circle" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-cC-3zh">
+                    <rect key="frame" x="0.0" y="-161" width="414" height="463"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="463" id="NOl-g3-JLk"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19ºC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JE-Ig-9sj">
+                    <rect key="frame" x="98.5" y="81" width="217" height="133"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="133" id="Iqx-lt-vKN"/>
+                        <constraint firstAttribute="width" constant="217" id="bLY-6d-oUy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="89"/>
+                    <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mendoza, ARG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqI-8X-qyM">
+                    <rect key="frame" x="10" y="10" width="384" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="yuK-L7-Jbk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, June 21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKX-Di-7Kj">
+                    <rect key="frame" x="10" y="52" width="374" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Q8r-tW-hh2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mostly raining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbJ-lc-KdR">
+                    <rect key="frame" x="146.5" y="214" width="121.5" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20.5" id="JFR-g3-LZ5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="FnW-cC-3zh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-161" id="5LQ-aY-SW0"/>
+                <constraint firstItem="MqI-8X-qyM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="79g-9G-80S"/>
+                <constraint firstItem="FnW-cC-3zh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JTF-gG-eDA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FKX-Di-7Kj" secondAttribute="trailing" constant="30" id="OSS-iU-Zfe"/>
+                <constraint firstItem="2JE-Ig-9sj" firstAttribute="top" secondItem="FKX-Di-7Kj" secondAttribute="bottom" constant="8" id="RBn-GR-JKy"/>
+                <constraint firstItem="MqI-8X-qyM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="RdD-IN-fGh"/>
+                <constraint firstItem="2JE-Ig-9sj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TrO-HQ-ash"/>
+                <constraint firstAttribute="trailing" secondItem="MqI-8X-qyM" secondAttribute="trailing" constant="20" id="hKe-Qg-lFW"/>
+                <constraint firstItem="FnW-cC-3zh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tbM-v3-HdH"/>
+                <constraint firstItem="FKX-Di-7Kj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="u0I-w8-FC2"/>
+                <constraint firstItem="FKX-Di-7Kj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="vs9-Nw-Rie"/>
+                <constraint firstItem="rbJ-lc-KdR" firstAttribute="top" secondItem="2JE-Ig-9sj" secondAttribute="bottom" id="wFk-j0-vhU"/>
+                <constraint firstItem="rbJ-lc-KdR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xSj-o4-cnf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="big_circle" width="768" height="768"/>
+    </resources>
+</document>
