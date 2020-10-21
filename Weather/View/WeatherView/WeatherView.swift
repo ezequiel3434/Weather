@@ -11,7 +11,7 @@ import UIKit
 class WeatherView: UIView{
 
     //MARK: - IBOutlets
-    @IBOutlet var mainViw: UIView!
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherInfoLabel: UILabel!
@@ -22,14 +22,38 @@ class WeatherView: UIView{
     @IBOutlet weak var infoCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        mainInit()
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        mainInit()
+    }
+    
+    private func mainInit(){
+        Bundle.main.loadNibNamed("WeatherView", owner: self, options: nil)
+        addSubview(mainView)
+        mainView.frame = self.bounds
+        mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        setupTableView()
+        setupHourlyCollectionView()
+        setupInfoCollectionView()
+        
+    }
+    
+    private func setupTableView(){
+        
+    }
+    
+    private func setupHourlyCollectionView(){
+        
+    }
+    
+    private func setupInfoCollectionView(){
+        
+    }
 
 }
