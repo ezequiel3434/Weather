@@ -8,15 +8,20 @@
 
 import UIKit
 
-class WeatherView: UIViewController {
+class WeatherView: UIView{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-
+    //MARK: - IBOutlets
+    @IBOutlet var mainViw: UIView!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var weatherInfoLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomContainer: UIView!
+    @IBOutlet weak var hourlyCollectionView: UICollectionView!
+    @IBOutlet weak var infoCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    
     /*
     // MARK: - Navigation
 
