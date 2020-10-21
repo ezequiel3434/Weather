@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +18,6 @@
                 <outlet property="scrollView" destination="06n-H7-Ob2" id="Dfj-eI-SAc"/>
                 <outlet property="tableView" destination="WUV-dh-SHc" id="XLa-KG-anp"/>
                 <outlet property="tempLabel" destination="2JE-Ig-9sj" id="QNv-5q-Stf"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherInfoLabel" destination="rbJ-lc-KdR" id="08v-bP-j0q"/>
             </connections>
         </placeholder>
@@ -27,13 +27,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_circle" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-cC-3zh">
-                    <rect key="frame" x="0.0" y="-161" width="414" height="463"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="302"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="463" id="NOl-g3-JLk"/>
+                        <constraint firstAttribute="height" constant="302" id="NOl-g3-JLk"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JE-Ig-9sj">
-                    <rect key="frame" x="98.5" y="37" width="217" height="133"/>
+                    <rect key="frame" x="98.5" y="73" width="217" height="133"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="133" id="Iqx-lt-vKN"/>
                         <constraint firstAttribute="width" constant="217" id="bLY-6d-oUy"/>
@@ -52,7 +52,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, June 21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKX-Di-7Kj">
-                    <rect key="frame" x="10" y="8" width="374" height="21"/>
+                    <rect key="frame" x="10" y="44" width="374" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Q8r-tW-hh2"/>
                     </constraints>
@@ -61,7 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mostly raining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbJ-lc-KdR">
-                    <rect key="frame" x="146.5" y="170" width="121.5" height="20.5"/>
+                    <rect key="frame" x="146.5" y="206" width="121.5" height="20.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20.5" id="JFR-g3-LZ5"/>
                     </constraints>
@@ -136,7 +136,7 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="FnW-cC-3zh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-161" id="5LQ-aY-SW0"/>
+                <constraint firstItem="FnW-cC-3zh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5LQ-aY-SW0"/>
                 <constraint firstItem="MqI-8X-qyM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="79g-9G-80S"/>
                 <constraint firstItem="FnW-cC-3zh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JTF-gG-eDA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FKX-Di-7Kj" secondAttribute="trailing" constant="30" id="OSS-iU-Zfe"/>
@@ -149,7 +149,7 @@
                 <constraint firstItem="06n-H7-Ob2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="be2-A2-sKn"/>
                 <constraint firstAttribute="trailing" secondItem="MqI-8X-qyM" secondAttribute="trailing" constant="20" id="hKe-Qg-lFW"/>
                 <constraint firstItem="FnW-cC-3zh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tbM-v3-HdH"/>
-                <constraint firstItem="FKX-Di-7Kj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="u0I-w8-FC2"/>
+                <constraint firstItem="FKX-Di-7Kj" firstAttribute="top" secondItem="MqI-8X-qyM" secondAttribute="bottom" constant="8" id="u0I-w8-FC2"/>
                 <constraint firstItem="FKX-Di-7Kj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="vs9-Nw-Rie"/>
                 <constraint firstItem="rbJ-lc-KdR" firstAttribute="top" secondItem="2JE-Ig-9sj" secondAttribute="bottom" id="wFk-j0-vhU"/>
                 <constraint firstItem="rbJ-lc-KdR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xSj-o4-cnf"/>

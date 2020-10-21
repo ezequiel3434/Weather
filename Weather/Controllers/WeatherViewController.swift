@@ -93,7 +93,7 @@ class WeatherViewController: UIViewController {
         for i in 0..<allLocations.count {
             
             if i == 0 {
-                <#code#>
+                
             }
         }
     }
