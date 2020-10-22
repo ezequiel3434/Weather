@@ -20,7 +20,7 @@ extension String {
 extension Date {
     func shortDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dddd, MMMM d"
+        dateFormatter.dateFormat = "EEEE, MMMM d"
         return dateFormatter.string(from: self)
     }
 }
