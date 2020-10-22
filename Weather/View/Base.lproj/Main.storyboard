@@ -125,7 +125,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="chevron.right" catalog="system"/>
                                 <connections>
-                                    <segue destination="Dwv-dQ-ONJ" kind="show" id="xMj-Gm-Z3t"/>
+                                    <action selector="arrowButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xWt-6t-BA4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -222,7 +222,7 @@
         <!--Detail View Controller-->
         <scene sceneID="T2i-ky-qhV">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Dwv-dQ-ONJ" customClass="DetailViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" modalPresentationStyle="fullScreen" id="Dwv-dQ-ONJ" customClass="DetailViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E3v-K5-tF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-12-IAz">
-                                <rect key="frame" x="0.0" y="643" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Item" id="bKa-1u-6Nw"/>
                                 </items>

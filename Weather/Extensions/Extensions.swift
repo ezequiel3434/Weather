@@ -15,3 +15,12 @@ extension String {
         return userInput.folding(options: .diacriticInsensitive, locale: .current)
     }
 }
+
+
+extension Date {
+    func shortDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dddd, MMMM d"
+        return dateFormatter.string(from: self)
+    }
+}

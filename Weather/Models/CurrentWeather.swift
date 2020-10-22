@@ -31,8 +31,9 @@ class CurrentWeather {
     //MARK: - Getters
     var city: String{
         if _city == nil {
-            _city = ""
+            _city = "hola"
         }
+        
         return _city
     }
     var date: Date {
@@ -122,19 +123,21 @@ class CurrentWeather {
         var LOCATIONAPI_URL: String!
         
         if !location.isCurrentLocation {
+            
             LOCATIONAPI_URL = String(format: "https://api.weatherbit.io/v2.0/current?city=%@,%@&key=7c1909634a1c40259418c967a63191a4", location.city.replacingOccurrences(of: " ", with: "+").toNoSmartQuotes(), location.countryCode)
         } else {
             LOCATIONAPI_URL = CURRENTLOCATION_URL
+            
         }
         
-        AF.request(LOCATIONAPI_URL).responseString { (response) in
+        AF.request(LOCATIONAPI_URL).responseJSON{ (response) in
             let result = response.result
             
             switch result {
                 
             case .success(let value):
                 let json = JSON(value)
-                print(json)
+                //print(json)
                 
                 self._city = json["data"][0]["city_name"].stringValue
                 self._date = currentDateFromUnix(unixDate: json["data"][0]["ts"].double)

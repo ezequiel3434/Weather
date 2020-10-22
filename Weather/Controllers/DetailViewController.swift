@@ -11,6 +11,10 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
+    //MARK: - Vars
+    var weatherView: WeatherView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +23,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let weatherView = WeatherView()
+        
         
         weatherView.frame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
         scrollView.addSubview(weatherView)
