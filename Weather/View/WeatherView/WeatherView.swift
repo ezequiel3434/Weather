@@ -24,7 +24,7 @@ class WeatherView: UIView{
     
     //MARK: - Vars
     var currentWeather: CurrentWeather!
-    
+    var weeklyForecastData: [WeeklyWeatherForecast] = []
     
     
     
@@ -51,6 +51,11 @@ class WeatherView: UIView{
     }
     
     private func setupTableView(){
+        tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "Cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.tableFooterView = UIView()
         
     }
     
@@ -68,10 +73,28 @@ class WeatherView: UIView{
     
 
     private func setupCurrentWeather(){
-        print(currentWeather.city)
+        
         cityNameLabel.text = currentWeather.city
         dateLabel.text = currentWeather.date.shortDate()
         weatherInfoLabel.text = currentWeather.weatherType
         tempLabel.text = String(format: "%0.f ºC", currentWeather.currentTemp)
     }
+}
+
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
+extension WeatherView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return weeklyForecastData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WeatherTableViewCell
+        cell.generateCell(forecast: weeklyForecastData[indexPath.row])
+        return cell
+    }
+    
+    
 }

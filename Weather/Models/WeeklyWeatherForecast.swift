@@ -40,9 +40,10 @@ class WeeklyWeatherForecast {
     
     init(weatherDictionary: Dictionary<String, AnyObject>) {
         let json = JSON(weatherDictionary)
-        self._date = currentDateFromUnix(unixDate: json["data"]["ts"].double!)
-        self._temp = json["data"]["temp"].double ?? 0.0
-        self._weatherIcon = json["data"]["weather"]["icon"].stringValue
+        
+        self._date = currentDateFromUnix(unixDate: json["ts"].double!)
+        self._temp = json["temp"].double ?? 0.0
+        self._weatherIcon = json["weather"]["icon"].stringValue
     }
     
     static func downloadWeeklyForecast(location: WeatherLocation, completion: @escaping(_ weeklyForecast: [WeeklyWeatherForecast]) -> Void ){
@@ -51,9 +52,11 @@ class WeeklyWeatherForecast {
         
         if !location.isCurrentLocation {
             WEEKLYFORECAST_URL = String(format: "https://api.weatherbit.io/v2.0/forecast/daily?city=%@,%@&days=7&key=7c1909634a1c40259418c967a63191a4", location.city.replacingOccurrences(of: " ", with: "+").toNoSmartQuotes(), location.countryCode)
+            
         } else {
             WEEKLYFORECAST_URL = CURRENTLOCATIONWEEKLYFORECAST_URL
         }
+        print(WEEKLYFORECAST_URL)
         
         AF.request(WEEKLYFORECAST_URL).responseJSON { (response) in
             let result = response.result
@@ -70,6 +73,7 @@ class WeeklyWeatherForecast {
                         }
                     }
                 }
+                
                 completion(forecastArray)
                 break
             case .failure(let error):

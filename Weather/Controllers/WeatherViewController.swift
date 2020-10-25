@@ -116,6 +116,7 @@ class WeatherViewController: UIViewController {
             let location = allLocations[i]
             
             getCurrentWeather(weatherView: weatherView, location: location)
+            getWeeklyWeather(weatherView: weatherView, location: location)
             
         }
     }
@@ -145,6 +146,15 @@ class WeatherViewController: UIViewController {
         weatherView.currentWeather.getCurrentWeather(location: location) { (success) in
             
             weatherView.refreshData()
+        }
+    }
+    
+    private func getWeeklyWeather(weatherView: WeatherView, location: WeatherLocation) {
+        WeeklyWeatherForecast.downloadWeeklyForecast(location: location) { (weatherForecasts) in
+            weatherView.weeklyForecastData = weatherForecasts
+            
+            weatherView.tableView.reloadData()
+            
         }
     }
 
