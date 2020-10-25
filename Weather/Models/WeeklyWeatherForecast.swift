@@ -56,7 +56,7 @@ class WeeklyWeatherForecast {
         } else {
             WEEKLYFORECAST_URL = CURRENTLOCATIONWEEKLYFORECAST_URL
         }
-        print(WEEKLYFORECAST_URL)
+        
         
         AF.request(WEEKLYFORECAST_URL).responseJSON { (response) in
             let result = response.result

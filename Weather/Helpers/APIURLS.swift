@@ -12,4 +12,4 @@ let CURRENTLOCATION_URL = "https://api.weatherbit.io/v2.0/current?&lat=\(Locatio
 
 let CURRENTLOCATIONWEEKLYFORECAST_URL = "https://api.weatherbit.io/v2.0/forecast/daily?&lat=\(LocationService.shared.latitude!)&lon=\(LocationService.shared.longitude!)&key=7c1909634a1c40259418c967a63191a4"
 
-let CURRENTLOCATIONHOURLYFORECAST_URL = "https://api.weatherbit.io/v2.0/forecast/hourly&lat=\(LocationService.shared.latitude!)&lon=\(LocationService.shared.longitude!)&key=7c1909634a1c40259418c967a63191a4"
+let CURRENTLOCATIONHOURLYFORECAST_URL = "https://api.weatherbit.io/v2.0/forecast/hourly?&lat=\(LocationService.shared.latitude!)&lon=\(LocationService.shared.longitude!)&key=7c1909634a1c40259418c967a63191a4"

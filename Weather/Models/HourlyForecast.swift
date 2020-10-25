@@ -40,6 +40,7 @@ class HourlyForecast {
     
     init(weatherDictionary: Dictionary<String, AnyObject>) {
         let json = JSON(weatherDictionary)
+        
         self._date = currentDateFromUnix(unixDate: json["ts"].double!)
         self._temp = json["temp"].double ?? 0.0
         self._weatherIcon = json["weather"]["icon"].stringValue
@@ -70,6 +71,7 @@ class HourlyForecast {
                         }
                     }
                 }
+                
                 complation(forecastArray)
                 break
             case .failure(let error):

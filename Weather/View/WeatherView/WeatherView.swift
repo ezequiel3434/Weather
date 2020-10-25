@@ -25,7 +25,8 @@ class WeatherView: UIView{
     //MARK: - Vars
     var currentWeather: CurrentWeather!
     var weeklyForecastData: [WeeklyWeatherForecast] = []
-    
+    var dailyWeatherForecastData: [HourlyForecast] = []
+    var weatherInfoData: [WeatherInfo] = []
     
     
     override init(frame: CGRect) {
@@ -60,11 +61,12 @@ class WeatherView: UIView{
     }
     
     private func setupHourlyCollectionView(){
-        
+        hourlyCollectionView.register(UINib(nibName: "ForecastCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        hourlyCollectionView.dataSource = self
     }
     
     private func setupInfoCollectionView(){
-        
+        infoCollectionView.register(UINib(nibName: "InfoCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
     }
     
     func refreshData(){
@@ -94,6 +96,36 @@ extension WeatherView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WeatherTableViewCell
         cell.generateCell(forecast: weeklyForecastData[indexPath.row])
         return cell
+    }
+    
+    
+}
+
+
+extension WeatherView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == hourlyCollectionView {
+            return dailyWeatherForecastData.count
+        } else {
+            return weatherInfoData.count
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == hourlyCollectionView {
+            let cell = hourlyCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ForecastCollectionViewCell
+            cell.generateCell(weather: dailyWeatherForecastData[indexPath.row])
+            return cell
+        } else {
+            let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! InfoCollectionViewCell
+            cell.generateCell(weatherInfo: weatherInfoData[indexPath.row])
+            return cell
+        }
+        
+       
+        
     }
     
     
