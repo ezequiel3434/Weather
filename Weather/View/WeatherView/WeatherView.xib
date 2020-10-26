@@ -42,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mendoza, ARG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqI-8X-qyM">
-                    <rect key="frame" x="10" y="10" width="384" height="26"/>
+                    <rect key="frame" x="10" y="10" width="334" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="yuK-L7-Jbk"/>
                     </constraints>
@@ -87,7 +87,7 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ss0-8T-ytc">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ss0-8T-ytc">
                                     <rect key="frame" x="5" y="104" width="404" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -133,6 +133,21 @@
                         <constraint firstItem="vol-3n-I2w" firstAttribute="width" secondItem="06n-H7-Ob2" secondAttribute="width" id="w6j-Z4-fGK"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ket-OB-3Te">
+                    <rect key="frame" x="324" y="16" width="60" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="nIk-Om-Yeb"/>
+                        <constraint firstAttribute="width" constant="60" id="vga-vn-fFY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="arrow.left" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissBtnAction:" destination="-1" eventType="touchUpInside" id="l17-i2-Y1s"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -141,14 +156,16 @@
                 <constraint firstItem="FnW-cC-3zh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JTF-gG-eDA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FKX-Di-7Kj" secondAttribute="trailing" constant="30" id="OSS-iU-Zfe"/>
                 <constraint firstItem="2JE-Ig-9sj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="OZQ-Hh-SPc"/>
+                <constraint firstItem="ket-OB-3Te" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="QGq-rP-Gm9"/>
                 <constraint firstAttribute="bottom" secondItem="06n-H7-Ob2" secondAttribute="bottom" id="R82-eI-RYd"/>
                 <constraint firstItem="2JE-Ig-9sj" firstAttribute="top" secondItem="FKX-Di-7Kj" secondAttribute="bottom" constant="8" id="RBn-GR-JKy"/>
                 <constraint firstItem="06n-H7-Ob2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RTR-ob-Xgw"/>
                 <constraint firstItem="MqI-8X-qyM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="RdD-IN-fGh"/>
                 <constraint firstItem="06n-H7-Ob2" firstAttribute="top" secondItem="FnW-cC-3zh" secondAttribute="bottom" id="TFe-tI-eIw"/>
                 <constraint firstItem="2JE-Ig-9sj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TrO-HQ-ash"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ket-OB-3Te" secondAttribute="trailing" constant="30" id="ZlK-8z-NLj"/>
                 <constraint firstItem="06n-H7-Ob2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="be2-A2-sKn"/>
-                <constraint firstAttribute="trailing" secondItem="MqI-8X-qyM" secondAttribute="trailing" constant="20" id="hKe-Qg-lFW"/>
+                <constraint firstAttribute="trailing" secondItem="MqI-8X-qyM" secondAttribute="trailing" constant="70" id="hKe-Qg-lFW"/>
                 <constraint firstItem="2JE-Ig-9sj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jWw-VR-Pbe"/>
                 <constraint firstItem="FnW-cC-3zh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tbM-v3-HdH"/>
                 <constraint firstItem="FKX-Di-7Kj" firstAttribute="top" secondItem="MqI-8X-qyM" secondAttribute="bottom" constant="8" id="u0I-w8-FC2"/>
@@ -162,6 +179,7 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="big_circle" width="768" height="768"/>
     </resources>
 </document>
