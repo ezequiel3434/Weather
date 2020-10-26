@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ChooseCityViewControllerDelegate {
+    func didAdd(newLocation: WeatherLocation)
+}
+
+
 class ChooseCityViewController: UIViewController {
 
     //MARK: - IBOutlets
@@ -19,6 +24,8 @@ class ChooseCityViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var savedLocations: [WeatherLocation]?
     let userDefaults = UserDefaults.standard
+    
+    var delegate: ChooseCityViewControllerDelegate?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -112,8 +119,16 @@ class ChooseCityViewController: UIViewController {
         }
     }
     
-    private func saveLocations(location: WeatherLocation){
-        
+    private func saveToUserDefaults(location: WeatherLocation){
+        if savedLocations != nil {
+            if !savedLocations!.contains(location) {
+                savedLocations!.append(location)
+            }
+        } else {
+            savedLocations = [location]
+        }
+        userDefaults.set(try? PropertyListEncoder().encode(savedLocations!), forKey: "Locations")
+        userDefaults.synchronize()
     }
 
    
@@ -153,6 +168,14 @@ extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = location.city
         cell.detailTextLabel?.text = location.country
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Save Location
+        tableView.deselectRow(at: indexPath, animated: true)
+        saveToUserDefaults(location: filteredLocations[indexPath.row])
+        delegate?.didAdd(newLocation: filteredLocations[indexPath.row])
+        dismissView()
     }
     
     
