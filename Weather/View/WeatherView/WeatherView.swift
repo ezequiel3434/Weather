@@ -45,6 +45,8 @@ class WeatherView: UIView{
         mainView.frame = self.bounds
         mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        infoCollectionView.dataSource = self
+        
         setupTableView()
         setupHourlyCollectionView()
         setupInfoCollectionView()
@@ -71,6 +73,9 @@ class WeatherView: UIView{
     
     func refreshData(){
         setupCurrentWeather()
+        setupWeatherInfo()
+        
+        infoCollectionView.reloadData()
     }
     
 
@@ -80,6 +85,18 @@ class WeatherView: UIView{
         dateLabel.text = currentWeather.date.shortDate()
         weatherInfoLabel.text = currentWeather.weatherType
         tempLabel.text = String(format: "%0.f ºC", currentWeather.currentTemp)
+    }
+    
+    private func setupWeatherInfo(){
+        let windInfo = WeatherInfo(infoText: String.init(format: "%.1f m/s", currentWeather.windSpeed), nameText: nil, image: getWeatherIconFor("wind"))
+        let humidityInfo = WeatherInfo(infoText: String.init(format: "%.0f", currentWeather.humedity), nameText: nil, image: getWeatherIconFor("humidity"))
+        let feelsLike = WeatherInfo(infoText: String.init(format: "%.1f", currentWeather.feelsLike), nameText: nil, image: getWeatherIconFor("feelslike"))
+        let pressureInfo = WeatherInfo(infoText: String.init(format: "%.0f mb", currentWeather.pressure), nameText: nil, image: getWeatherIconFor("pressure"))
+        let sunriseInfo = WeatherInfo(infoText: currentWeather.sunrise, nameText: nil, image: getWeatherIconFor("sunrise"))
+        let sunsetInfo = WeatherInfo(infoText: currentWeather.sunset, nameText: nil, image: getWeatherIconFor("sunset"))
+        let visibilityInfo = WeatherInfo(infoText: String.init(format: "%.0f km", currentWeather.visibility), nameText: nil, image: getWeatherIconFor("visibility"))
+        let uvInfo = WeatherInfo(infoText: String.init(format: "%.0f", currentWeather.uv), nameText: "UV Index", image: nil)
+        weatherInfoData = [windInfo, humidityInfo, feelsLike, pressureInfo, sunriseInfo, sunsetInfo, visibilityInfo, uvInfo]
     }
 }
 
@@ -119,6 +136,7 @@ extension WeatherView: UICollectionViewDataSource {
             cell.generateCell(weather: dailyWeatherForecastData[indexPath.row])
             return cell
         } else {
+            
             let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! InfoCollectionViewCell
             cell.generateCell(weatherInfo: weatherInfoData[indexPath.row])
             return cell
