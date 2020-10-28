@@ -54,11 +54,8 @@ class WeatherView: UIView{
     }
     
     @IBAction func dismissBtnAction(_ sender: UIButton) {
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromLeft
-        self.mainView.window?.layer.add(transition, forKey: kCATransition)
+        
+        self.mainView.window?.layer.add(leftTransition(), forKey: kCATransition)
        self.mainView.window?.rootViewController?.dismiss(animated: false, completion: nil)
     }
     

@@ -87,7 +87,17 @@ class AllLocationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 //        delegate?.didChooseLocation(atIndex: indexPath.row, shouldRefresh: shouldRefresh)
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        
+        guard weatherData == nil else {
+            return
+        }
+        let vc = storyboard?.instantiateViewController(identifier: "Detail") as! DetailViewController
+        
+        vc.weatherView = weatherData![indexPath.row]
+        
+        self.view.window?.layer.add(rightTransition(), forKey: kCATransition)
+        present(vc,animated: false )
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -22,3 +22,19 @@ func getWeatherIconFor(_ type: String) -> UIImage? {
     return UIImage(named: type)
 }
 
+func rightTransition() -> CATransition {
+    let transition = CATransition()
+    transition.duration = 0.3
+    transition.type = CATransitionType.push
+    transition.subtype = CATransitionSubtype.fromRight
+    return transition
+}
+
+
+func leftTransition() -> CATransition {
+    let transition = CATransition()
+    transition.duration = 0.3
+    transition.type = CATransitionType.push
+    transition.subtype = CATransitionSubtype.fromLeft
+    return transition
+}
