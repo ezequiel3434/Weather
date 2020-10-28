@@ -54,6 +54,7 @@ class WeatherViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if shouldRefresh {
+            print("refresh")
             allLocations = []
             allWeatherViews = []
             locationAutoCheck()
@@ -156,6 +157,7 @@ class WeatherViewController: UIViewController {
             getCurrentWeather(weatherView: weatherView, location: location) { success in
                 if i == last{
                     done1 = true
+                    comp(true)
                 }
             }
             getWeeklyWeather(weatherView: weatherView, location: location){ success in
@@ -166,14 +168,14 @@ class WeatherViewController: UIViewController {
             getHourlyWeather(weather: weatherView, location: location) { success in
                 if i == last{
                     done3 = true
-                    comp(true)
+                    
                 }
             }
             
         }
-        if done1 && done2 && done3  {
-            comp(true)
-        }
+//        if done1 && done2 && done3  {
+//            comp(true)
+//        }
         
     }
     
@@ -254,7 +256,7 @@ extension WeatherViewController: ChooseCityViewControllerDelegate {
         shouldRefresh = true
         
         
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     

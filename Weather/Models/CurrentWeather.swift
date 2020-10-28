@@ -93,7 +93,7 @@ class CurrentWeather {
     
     var weatherIcon: String {
         if _weatherIcon == nil {
-            _weatherIcon = ""
+            _weatherIcon = "c01d"
         }
         return _weatherIcon
     }

@@ -41,36 +41,41 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="QaY-HZ-cnb">
-                                                    <rect key="frame" x="16" y="5" width="343" height="60"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-m9-jkb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="63" height="60"/>
-                                                            <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfD-p9-j83">
-                                                            <rect key="frame" x="159.5" y="0.0" width="27" height="60"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvR-OD-Pj7">
-                                                            <rect key="frame" x="283" y="0.0" width="60" height="60"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="5rf-xh-j6x"/>
-                                                                <constraint firstAttribute="height" constant="50" id="OTK-Af-XrQ"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-m9-jkb">
+                                                    <rect key="frame" x="16" y="5" width="288" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="APF-sK-NsB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfD-p9-j83">
+                                                    <rect key="frame" x="170" y="20" width="35" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="9bu-Mr-Cby"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="g6B-mZ-cir"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvR-OD-Pj7">
+                                                    <rect key="frame" x="309" y="10" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="EDG-7J-QYX"/>
+                                                        <constraint firstAttribute="height" constant="50" id="LFC-Di-8yM"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="QaY-HZ-cnb" secondAttribute="bottom" constant="5" id="9dH-WO-o97"/>
-                                                <constraint firstItem="QaY-HZ-cnb" firstAttribute="leading" secondItem="Rmb-YE-V5p" secondAttribute="leading" constant="16" id="DJq-Qa-7s2"/>
-                                                <constraint firstAttribute="trailing" secondItem="QaY-HZ-cnb" secondAttribute="trailing" constant="16" id="QME-jr-KNj"/>
-                                                <constraint firstItem="QaY-HZ-cnb" firstAttribute="top" secondItem="Rmb-YE-V5p" secondAttribute="top" constant="5" id="qbH-Ca-LGL"/>
+                                                <constraint firstItem="z0V-m9-jkb" firstAttribute="centerY" secondItem="Rmb-YE-V5p" secondAttribute="centerY" id="0eV-sZ-2aj"/>
+                                                <constraint firstItem="z0V-m9-jkb" firstAttribute="leading" secondItem="Rmb-YE-V5p" secondAttribute="leading" constant="16" id="8ns-4L-pQW"/>
+                                                <constraint firstItem="wfD-p9-j83" firstAttribute="centerY" secondItem="Rmb-YE-V5p" secondAttribute="centerY" id="9Zi-YP-pJg"/>
+                                                <constraint firstItem="wfD-p9-j83" firstAttribute="centerX" secondItem="Rmb-YE-V5p" secondAttribute="centerX" id="Aua-0q-pdT"/>
+                                                <constraint firstItem="tvR-OD-Pj7" firstAttribute="leading" secondItem="z0V-m9-jkb" secondAttribute="trailing" constant="5" id="BWn-xE-F0D"/>
+                                                <constraint firstAttribute="trailing" secondItem="tvR-OD-Pj7" secondAttribute="trailing" constant="16" id="Jq1-NK-FwF"/>
+                                                <constraint firstItem="tvR-OD-Pj7" firstAttribute="centerY" secondItem="Rmb-YE-V5p" secondAttribute="centerY" id="hlg-gK-0O9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -81,10 +86,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19ºC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBo-Zb-hh2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19ºC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBo-Zb-hh2">
                                 <rect key="frame" x="79" y="84.5" width="217" height="133"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="217" id="Apo-Sp-O7a"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="217" id="Apo-Sp-O7a"/>
                                     <constraint firstAttribute="height" constant="133" id="qCC-qG-fCv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="89"/>
