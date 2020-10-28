@@ -17,6 +17,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherInfoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addBtn: UIButton!
     
     let allLocationsTableViewController = AllLocationsTableViewController()
     
@@ -210,7 +211,9 @@ class WeatherViewController: UIViewController {
             allLocations.append(currentLocation)
         }
         
-        
+        if allLocations.count > 4 {
+            addBtn.isEnabled = false
+        }
         
     }
     
@@ -275,6 +278,18 @@ extension WeatherViewController: ChooseCityViewControllerDelegate {
         
         
         //        tableView.reloadData()
+    }
+    
+    
+}
+
+extension WeatherViewController: AllLocationsTableViewControllerDelegate {
+    func didDeleteLocation(locationsLenght: Int) {
+        if locationsLenght > 4 {
+            addBtn.isEnabled = false
+        } else {
+            addBtn.isEnabled = true
+        }
     }
     
     

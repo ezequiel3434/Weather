@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AllLocationsTableViewControllerDelegate {
-    func didChooseLocation(atIndex: Int, shouldRefresh: Bool)
+    func didDeleteLocation(locationsLenght: Int)
 }
 
 class AllLocationsTableViewController: UITableViewController {
@@ -86,7 +86,7 @@ class AllLocationsTableViewController: UITableViewController {
     //MARK: - TableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.didChooseLocation(atIndex: indexPath.row, shouldRefresh: shouldRefresh)
+//        delegate?.didChooseLocation(atIndex: indexPath.row, shouldRefresh: shouldRefresh)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -104,12 +104,19 @@ class AllLocationsTableViewController: UITableViewController {
     }
     
     private func removeLocationFromSavedLocation(location: String){
+        
         if savedLocations != nil {
+            print("locations")
+            print(savedLocations)
+            print("lcoation, ", location)
             for i in 0..<savedLocations!.count {
                 let tempLocation = savedLocations![i]
                 if tempLocation.city == location {
                     savedLocations?.remove(at: i)
+                    
+                    
                     saveNewLocationsToUserDefaults()
+                    delegate?.didDeleteLocation(locationsLenght: savedLocations!.count)
                     return
                 }
             }
