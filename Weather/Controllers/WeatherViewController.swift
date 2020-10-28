@@ -16,6 +16,10 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherInfoLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let allLocationsTableViewController = AllLocationsTableViewController()
+    
     
     //MARK: - Vars
     var userDefaults = UserDefaults.standard
@@ -33,6 +37,11 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManagerStart()
+        self.tableView.delegate = allLocationsTableViewController
+        self.tableView.dataSource = allLocationsTableViewController
+        
+        
+        
 //        let location = WeatherLocation(city: "Mendoza", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
 //        let currentWeather = CurrentWeather()
 //
@@ -116,14 +125,56 @@ class WeatherViewController: UIViewController {
     }
     
     private func addWeatherToList() {
+        
+        getForecast { [weak self] (success) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+               
+                
+                    strongSelf.allLocationsTableViewController.weatherData = strongSelf.allWeatherViews
+                    strongSelf.tableView.reloadData()
+                
+                
+            
+            
+        }
+        
+    }
+    
+    
+    private func getForecast( comp: @escaping(_ success: Bool) ->Void){
+        var done1 = false
+        var done2 = false
+        var done3 = false
+        let last = allWeatherViews.count - 1
         for i in 0..<allWeatherViews.count {
             let weatherView = allWeatherViews[i]
             let location = allLocations[i]
             
-            getCurrentWeather(weatherView: weatherView, location: location)
-            getWeeklyWeather(weatherView: weatherView, location: location)
-            getHourlyWeather(weather: weatherView, location: location)
+            getCurrentWeather(weatherView: weatherView, location: location) { success in
+                if i == last{
+                    done1 = true
+                }
+            }
+            getWeeklyWeather(weatherView: weatherView, location: location){ success in
+                if i == last{
+                    done2 = true
+                }
+            }
+            getHourlyWeather(weather: weatherView, location: location) { success in
+                if i == last{
+                    done3 = true
+                    comp(true)
+                }
+            }
+            
         }
+        if done1 && done2 && done3  {
+            comp(true)
+        }
+        
     }
     
     //MARK: - UserDefaults
@@ -133,10 +184,13 @@ class WeatherViewController: UIViewController {
         
         if let data = userDefaults.value(forKey: "Locations") as? Data {
             allLocations = try! PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
+            
         } else {
             print("No data in userDefaults")
             allLocations.append(currentLocation)
         }
+        
+        
         
     }
     
@@ -145,27 +199,41 @@ class WeatherViewController: UIViewController {
 
     //MARK: - Download Data
     
-    private func getCurrentWeather(weatherView: WeatherView, location: WeatherLocation) {
+    private func getCurrentWeather(weatherView: WeatherView, location: WeatherLocation, completion: @escaping(_ success: Bool) ->Void) {
+        
         weatherView.currentWeather = CurrentWeather()
         
         weatherView.currentWeather.getCurrentWeather(location: location) { (success) in
-            
+            print(weatherView.currentWeather.city)
             weatherView.refreshData()
+            completion(true)
         }
     }
     
-    private func getWeeklyWeather(weatherView: WeatherView, location: WeatherLocation) {
+    private func getWeeklyWeather(weatherView: WeatherView, location: WeatherLocation, completion: @escaping(_ success: Bool) ->Void) {
         WeeklyWeatherForecast.downloadWeeklyForecast(location: location) { (weatherForecasts) in
             weatherView.weeklyForecastData = weatherForecasts
             
             weatherView.tableView.reloadData()
+            completion(true)
             
         }
     }
-    private func getHourlyWeather(weather: WeatherView, location: WeatherLocation){
+    private func getHourlyWeather(weather: WeatherView, location: WeatherLocation, completion: @escaping(_ success: Bool) ->Void){
         HourlyForecast.downloadHourlyForecast(location: location) { (forecasts) in
             weather.dailyWeatherForecastData = forecasts
             weather.hourlyCollectionView.reloadData()
+            completion(true)
+        }
+    }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chooseLocationSeg" {
+            let vc = segue.destination as! ChooseCityViewController
+            vc.delegate = self
+            
+            
         }
     }
 
@@ -177,4 +245,17 @@ extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to get location, \(error.localizedDescription)")
     }
+}
+
+
+extension WeatherViewController: ChooseCityViewControllerDelegate {
+    func didAdd() {
+        print("didadd")
+        shouldRefresh = true
+        
+        
+        tableView.reloadData()
+    }
+    
+    
 }

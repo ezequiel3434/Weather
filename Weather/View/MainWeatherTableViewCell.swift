@@ -24,11 +24,11 @@ class MainWeatherTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func generateCell(weatherData: CityTempData) {
-        cityLabel.text = weatherData.city
+    func generateCell(weatherData: WeatherView) {
+        cityLabel.text = weatherData.currentWeather.city
         cityLabel.adjustsFontSizeToFitWidth = true
-        tempLabel.text = String.init(format: "%0.f ºC", weatherData.temp)
-        weatherIconImage.image = getWeatherIconFor(weatherData.icon)
+        tempLabel.text = String.init(format: "%0.f ºC", weatherData.currentWeather.currentTemp)
+        weatherIconImage.image = getWeatherIconFor(weatherData.currentWeather.weatherIcon)
     }
 
 }

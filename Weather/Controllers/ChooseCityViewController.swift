@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChooseCityViewControllerDelegate {
-    func didAdd(newLocation: WeatherLocation)
+    func didAdd()
 }
 
 
@@ -174,7 +174,7 @@ extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
         // Save Location
         tableView.deselectRow(at: indexPath, animated: true)
         saveToUserDefaults(location: filteredLocations[indexPath.row])
-        delegate?.didAdd(newLocation: filteredLocations[indexPath.row])
+        delegate?.didAdd()
         dismissView()
     }
     

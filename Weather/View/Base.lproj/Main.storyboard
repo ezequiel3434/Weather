@@ -157,6 +157,7 @@
                     <connections>
                         <outlet property="cityNameLabel" destination="kRE-rh-9rm" id="r1Z-e0-3VR"/>
                         <outlet property="dateLabel" destination="B6u-lG-GAU" id="gIW-2K-PCS"/>
+                        <outlet property="tableView" destination="YIr-Un-VAQ" id="K5C-Ds-Wzv"/>
                         <outlet property="tempLabel" destination="PBo-Zb-hh2" id="TNw-g8-7c1"/>
                         <outlet property="weatherInfoLabel" destination="EJP-rI-KWj" id="fSX-M3-FoY"/>
                     </connections>
