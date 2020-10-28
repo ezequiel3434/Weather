@@ -23,17 +23,17 @@ class WeatherViewController: UIViewController {
     
     //MARK: - Vars
     var userDefaults = UserDefaults.standard
-   
+    
     var locationManager: CLLocationManager?
     var currentLocation: CLLocationCoordinate2D!
-     var allLocations: [WeatherLocation] = []
+    var allLocations: [WeatherLocation] = []
     var allWeatherViews: [WeatherView] = []
     var allWeatherData: [CityTempData] = []
     
     var shouldRefresh = true
     
     
-//MARK: - LifeCycle view
+    //MARK: - LifeCycle view
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManagerStart()
@@ -42,12 +42,12 @@ class WeatherViewController: UIViewController {
         
         
         
-//        let location = WeatherLocation(city: "Mendoza", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
-//        let currentWeather = CurrentWeather()
-//
-//        currentWeather.getCurrentWeather(location: location) { (success) in
-//
-//        }
+        //        let location = WeatherLocation(city: "Mendoza", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
+        //        let currentWeather = CurrentWeather()
+        //
+        //        currentWeather.getCurrentWeather(location: location) { (success) in
+        //
+        //        }
         
     }
     
@@ -132,12 +132,12 @@ class WeatherViewController: UIViewController {
                 return
             }
             
-               
-                
-                    strongSelf.allLocationsTableViewController.weatherData = strongSelf.allWeatherViews
-                    strongSelf.tableView.reloadData()
-                
-                
+            
+            
+            strongSelf.allLocationsTableViewController.weatherData = strongSelf.allWeatherViews
+            strongSelf.tableView.reloadData()
+            
+            
             
             
         }
@@ -146,36 +146,55 @@ class WeatherViewController: UIViewController {
     
     
     private func getForecast( comp: @escaping(_ success: Bool) ->Void){
+        let group = DispatchGroup()
         var done1 = false
         var done2 = false
         var done3 = false
         let last = allWeatherViews.count - 1
         for i in 0..<allWeatherViews.count {
+            
+            
+            
+            
             let weatherView = allWeatherViews[i]
             let location = allLocations[i]
-            
+            group.enter()
             getCurrentWeather(weatherView: weatherView, location: location) { success in
-                if i == last{
-                    done1 = true
-                    comp(true)
+                defer{
+                    group.leave()
                 }
+                //                if i == last{
+                //                    done1 = true
+                //                    comp(true)
+                //                }
             }
+            group.enter()
             getWeeklyWeather(weatherView: weatherView, location: location){ success in
-                if i == last{
-                    done2 = true
+                defer{
+                    group.leave()
                 }
+                //                if i == last{
+                //                    done2 = true
+                //                }
             }
+            
+            group.enter()
             getHourlyWeather(weather: weatherView, location: location) { success in
-                if i == last{
-                    done3 = true
-                    
+                
+                defer{
+                    group.leave()
                 }
+//                if i == last{
+//                    done3 = true
+//
+//                }
             }
             
         }
-//        if done1 && done2 && done3  {
-//            comp(true)
-//        }
+        
+        group.notify(queue: .main, execute: {
+            comp(true)
+        })
         
     }
     
@@ -186,6 +205,7 @@ class WeatherViewController: UIViewController {
         
         if let data = userDefaults.value(forKey: "Locations") as? Data {
             allLocations = try! PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
+            allLocations.insert(currentLocation, at: 0)
             
         } else {
             print("No data in userDefaults")
@@ -198,7 +218,7 @@ class WeatherViewController: UIViewController {
     
     
     
-
+    
     //MARK: - Download Data
     
     private func getCurrentWeather(weatherView: WeatherView, location: WeatherLocation, completion: @escaping(_ success: Bool) ->Void) {
@@ -238,8 +258,8 @@ class WeatherViewController: UIViewController {
             
         }
     }
-
-
+    
+    
 }
 
 //MARK: - CLLocationManagerDelegate
@@ -256,7 +276,7 @@ extension WeatherViewController: ChooseCityViewControllerDelegate {
         shouldRefresh = true
         
         
-//        tableView.reloadData()
+        //        tableView.reloadData()
     }
     
     
