@@ -147,10 +147,8 @@ class WeatherViewController: UIViewController {
     
     private func getForecast( comp: @escaping(_ success: Bool) ->Void){
         let group = DispatchGroup()
-        var done1 = false
-        var done2 = false
-        var done3 = false
-        let last = allWeatherViews.count - 1
+        
+        
         for i in 0..<allWeatherViews.count {
             
             
@@ -160,9 +158,9 @@ class WeatherViewController: UIViewController {
             let location = allLocations[i]
             group.enter()
             getCurrentWeather(weatherView: weatherView, location: location) { success in
-                defer{
+                
                     group.leave()
-                }
+                
                 //                if i == last{
                 //                    done1 = true
                 //                    comp(true)
@@ -170,9 +168,9 @@ class WeatherViewController: UIViewController {
             }
             group.enter()
             getWeeklyWeather(weatherView: weatherView, location: location){ success in
-                defer{
+                
                     group.leave()
-                }
+                
                 //                if i == last{
                 //                    done2 = true
                 //                }
@@ -181,9 +179,9 @@ class WeatherViewController: UIViewController {
             group.enter()
             getHourlyWeather(weather: weatherView, location: location) { success in
                 
-                defer{
+                
                     group.leave()
-                }
+                
 //                if i == last{
 //                    done3 = true
 //

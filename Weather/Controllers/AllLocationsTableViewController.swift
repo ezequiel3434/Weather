@@ -98,11 +98,22 @@ class AllLocationsTableViewController: UITableViewController {
         if editingStyle == .delete {
             let locationToDelete = weatherData?[indexPath.row]
             weatherData?.remove(at: indexPath.row)
+            removeLocationFromSavedLocation(location: (locationToDelete?.currentWeather.city)!)
+            tableView.reloadData()
         }
     }
     
     private func removeLocationFromSavedLocation(location: String){
-        
+        if savedLocations != nil {
+            for i in 0..<savedLocations!.count {
+                let tempLocation = savedLocations![i]
+                if tempLocation.city == location {
+                    savedLocations?.remove(at: i)
+                    saveNewLocationsToUserDefaults()
+                    return
+                }
+            }
+        }
     }
 
    }
