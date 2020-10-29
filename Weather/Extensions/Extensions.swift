@@ -37,3 +37,10 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+
+extension Array {
+    var tail: Array{
+        return Array(self.dropFirst())
+    }
+}

@@ -115,16 +115,15 @@ class AllLocationsTableViewController: UITableViewController {
     }
     
     private func removeLocationFromSavedLocation(location: String){
-        print(savedLocations)
+        
         if savedLocations != nil {
-            print("savedLocations: ", savedLocations)
-            print(location)
+            
             for i in 0..<savedLocations!.count {
                 let tempLocation = savedLocations![i]
                 if tempLocation.city == location {
                     savedLocations?.remove(at: i)
                     
-                    print("estoy adentro del if")
+                    
                     saveNewLocationsToUserDefaults()
                     delegate?.didDeleteLocation(locationsLenght: savedLocations!.count)
                     return

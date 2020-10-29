@@ -114,6 +114,8 @@ class WeatherViewController: UIViewController {
         addWeatherToList()
     }
     
+    
+    
     private func createWeatherViews() {
         for _ in allLocations {
             allWeatherViews.append(WeatherView())
@@ -129,7 +131,8 @@ class WeatherViewController: UIViewController {
             
             
             
-            strongSelf.allLocationsTableViewController.weatherData = strongSelf.allWeatherViews
+            strongSelf.allLocationsTableViewController.weatherData = strongSelf.allWeatherViews.tail
+            strongSelf.setupCurrentWeatherView()
             strongSelf.tableView.reloadData()
             
             
@@ -139,6 +142,14 @@ class WeatherViewController: UIViewController {
         
     }
     
+    private func setupCurrentWeatherView(){
+        let currentWeather = allWeatherViews[0]
+        cityNameLabel.text = currentWeather.currentWeather.city
+        dateLabel.text = currentWeather.currentWeather.date.shortDate()
+        tempLabel.text = "\(currentWeather.currentWeather.currentTemp)"
+        weatherInfoLabel.text = currentWeather.currentWeather.weatherType
+        
+    }
     
     private func getForecast( comp: @escaping(_ success: Bool) ->Void){
         let group = DispatchGroup()
@@ -258,7 +269,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
 
 extension WeatherViewController: ChooseCityViewControllerDelegate {
     func didAdd() {
-        print("didadd")
+        
         shouldRefresh = true
         allLocationsTableViewController.loadLocationsFromUserDefaults()
         
@@ -271,14 +282,14 @@ extension WeatherViewController: ChooseCityViewControllerDelegate {
 extension WeatherViewController: AllLocationsTableViewControllerDelegate {
     func didChoseLocation(index: Int) {
          guard let detailViewController = detailVC else { return  }
-               detailViewController.weatherView = allWeatherViews[index]
+               detailViewController.weatherView = allWeatherViews[index+1]
                
                self.view.window?.layer.add(rightTransition(), forKey: kCATransition)
                present(detailViewController,animated: false )
     }
     
     func didDeleteLocation(locationsLenght: Int){
-    print("delete")
+    
         print(locationsLenght)
         if locationsLenght > 4 {
             addBtn.isEnabled = false
