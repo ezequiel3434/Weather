@@ -55,7 +55,7 @@ class AllLocationsTableViewController: UITableViewController {
     }
     
     //MARK: - UserDefaults
-    private func loadLocationsFromUserDefaults(){
+    func loadLocationsFromUserDefaults(){
         if let data = try? userDefaults.value(forKey: "Locations") as? Data {
             savedLocations = try? PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
         }

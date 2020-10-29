@@ -156,19 +156,14 @@ class WeatherViewController: UIViewController {
                 
                     group.leave()
                 
-                //                if i == last{
-                //                    done1 = true
-                //                    comp(true)
-                //                }
+               
             }
             group.enter()
             getWeeklyWeather(weatherView: weatherView, location: location){ success in
                 
                     group.leave()
                 
-                //                if i == last{
-                //                    done2 = true
-                //                }
+               
             }
             
             group.enter()
@@ -177,10 +172,6 @@ class WeatherViewController: UIViewController {
                 
                     group.leave()
                 
-//                if i == last{
-//                    done3 = true
-//
-//                }
             }
             
         }
@@ -269,7 +260,7 @@ extension WeatherViewController: ChooseCityViewControllerDelegate {
     func didAdd() {
         print("didadd")
         shouldRefresh = true
-        
+        allLocationsTableViewController.loadLocationsFromUserDefaults()
         
         
     }
