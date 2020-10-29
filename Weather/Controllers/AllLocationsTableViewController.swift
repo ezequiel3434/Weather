@@ -10,6 +10,7 @@ import UIKit
 
 protocol AllLocationsTableViewControllerDelegate {
     func didDeleteLocation(locationsLenght: Int)
+    func didChoseLocation(index: Int)
 }
 
 class AllLocationsTableViewController: UITableViewController {
@@ -86,18 +87,18 @@ class AllLocationsTableViewController: UITableViewController {
     //MARK: - TableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        delegate?.didChooseLocation(atIndex: indexPath.row, shouldRefresh: shouldRefresh)
-//        self.dismiss(animated: true, completion: nil)
+
         
-        guard weatherData == nil else {
-            return
-        }
-        let vc = storyboard?.instantiateViewController(identifier: "Detail") as! DetailViewController
         
-        vc.weatherView = weatherData![indexPath.row]
+        delegate?.didChoseLocation(index: indexPath.row)
         
-        self.view.window?.layer.add(rightTransition(), forKey: kCATransition)
-        present(vc,animated: false )
+        self.dismiss(animated: false, completion: nil)
+
+        
+        
+        
+        
+
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -114,17 +115,16 @@ class AllLocationsTableViewController: UITableViewController {
     }
     
     private func removeLocationFromSavedLocation(location: String){
-        
+        print(savedLocations)
         if savedLocations != nil {
-            print("locations")
-            print(savedLocations)
-            print("lcoation, ", location)
+            print("savedLocations: ", savedLocations)
+            print(location)
             for i in 0..<savedLocations!.count {
                 let tempLocation = savedLocations![i]
                 if tempLocation.city == location {
                     savedLocations?.remove(at: i)
                     
-                    
+                    print("estoy adentro del if")
                     saveNewLocationsToUserDefaults()
                     delegate?.didDeleteLocation(locationsLenght: savedLocations!.count)
                     return

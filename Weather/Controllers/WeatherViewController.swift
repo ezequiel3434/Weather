@@ -30,6 +30,7 @@ class WeatherViewController: UIViewController {
     var allLocations: [WeatherLocation] = []
     var allWeatherViews: [WeatherView] = []
     var allWeatherData: [CityTempData] = []
+    var detailVC: DetailViewController?
     
     var shouldRefresh = true
     
@@ -40,15 +41,10 @@ class WeatherViewController: UIViewController {
         locationManagerStart()
         self.tableView.delegate = allLocationsTableViewController
         self.tableView.dataSource = allLocationsTableViewController
+        allLocationsTableViewController.delegate = self
+        detailVC = storyboard?.instantiateViewController(identifier: "Detail") as! DetailViewController
         
         
-        
-        //        let location = WeatherLocation(city: "Mendoza", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
-        //        let currentWeather = CurrentWeather()
-        //
-        //        currentWeather.getCurrentWeather(location: location) { (success) in
-        //
-        //        }
         
     }
     
@@ -70,11 +66,12 @@ class WeatherViewController: UIViewController {
     
     
     @IBAction func arrowButtonAction(_ sender: UIButton) {
-        let vc = storyboard?.instantiateViewController(identifier: "Detail") as! DetailViewController
-        vc.weatherView = allWeatherViews[0]
+        //let vc = storyboard?.instantiateViewController(identifier: "Detail") as! DetailViewController
+        guard let detailViewController = detailVC else { return  }
+        detailViewController.weatherView = allWeatherViews[0]
         
         self.view.window?.layer.add(rightTransition(), forKey: kCATransition)
-        present(vc,animated: false )
+        present(detailViewController,animated: false )
         
     }
     
@@ -224,7 +221,7 @@ class WeatherViewController: UIViewController {
         weatherView.currentWeather = CurrentWeather()
         
         weatherView.currentWeather.getCurrentWeather(location: location) { (success) in
-            print(weatherView.currentWeather.city)
+            
             weatherView.refreshData()
             completion(true)
         }
@@ -274,14 +271,24 @@ extension WeatherViewController: ChooseCityViewControllerDelegate {
         shouldRefresh = true
         
         
-        //        tableView.reloadData()
+        
     }
     
     
 }
 
 extension WeatherViewController: AllLocationsTableViewControllerDelegate {
-    func didDeleteLocation(locationsLenght: Int) {
+    func didChoseLocation(index: Int) {
+         guard let detailViewController = detailVC else { return  }
+               detailViewController.weatherView = allWeatherViews[index]
+               
+               self.view.window?.layer.add(rightTransition(), forKey: kCATransition)
+               present(detailViewController,animated: false )
+    }
+    
+    func didDeleteLocation(locationsLenght: Int){
+    print("delete")
+        print(locationsLenght)
         if locationsLenght > 4 {
             addBtn.isEnabled = false
         } else {
